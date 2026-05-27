@@ -68,7 +68,7 @@ function busquedaBinaria(arr: number[], objetivo: number): number {
 const ordenado = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 console.log("Binaria busca 11:", busquedaBinaria(ordenado, 11)); // → 5 (índice)
 console.log("Binaria busca 6: ", busquedaBinaria(ordenado, 6));  // → -1 (no existe)
-
+console.log("Binaria busca 19: ", busquedaBinaria(ordenado, 19));
 // ─────────────────────────────────────────────────────────────
 // O(n log n) — Linerogarítmico
 // ─────────────────────────────────────────────────────────────

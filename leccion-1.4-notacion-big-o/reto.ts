@@ -19,11 +19,20 @@ export {};
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota la complejidad en el comentario
-// Complejidad: O( ??? )
+// Complejidad: O( creo que es lineal )
 function esPrimo(n: number): boolean {
-
+    if (n < 2) return false;
+    for (let i = 2; i < n; i++){
+        if (n % i === 0) return false;
+    }
+    return true;
 }
-
+// Pruebas:
+console.log("--- esPrimo ---");
+console.log(esPrimo(2));   // true
+console.log(esPrimo(7));   // true
+console.log(esPrimo(9));   // false (3 × 3)
+console.log(esPrimo(1));   // false (por definición, 1 no es primo)
 // ─────────────────────────────────────────────
 // FUNCIÓN B: Encontrar el par de suma más eficiente
 // Dado un arreglo ORDENADO y un objetivo,
@@ -41,8 +50,27 @@ function esPrimo(n: number): boolean {
 // TODO: implementa y anota la complejidad en el comentario
 // Complejidad: O( ??? )
 function dosPunteros(arr: number[], objetivo: number): [number, number] | null {
+    let inicio = 0;
+    let fin = arr.length - 1;    
+    while(inicio <= fin ){
+        const suma = arr[inicio] + arr[fin];
+        if (suma === objetivo){
+            return [arr[inicio], arr[fin]]
+        }   else if (suma < objetivo){
+            inicio++;           
+            }else{
+                fin--;
+            }
+    }
+    return null;
+    
 
 }
+console.log("--- dosPunteros ---");
+console.log(dosPunteros([1, 3, 5, 7, 9], 8));   // [1, 7] o [3, 5]
+console.log(dosPunteros([2, 4, 6, 8], 10));      // [2, 8] o [4, 6]
+console.log(dosPunteros([1, 2, 3], 10));          // null
+
 
 // ─────────────────────────────────────────────
 // FUNCIÓN C: Contar elementos únicos
@@ -61,18 +89,6 @@ function dosPunteros(arr: number[], objetivo: number): [number, number] | null {
 function contarUnicos(arr: number[]): number {
 
 }
-
-// Pruebas:
-console.log("--- esPrimo ---");
-console.log(esPrimo(2));   // true
-console.log(esPrimo(7));   // true
-console.log(esPrimo(9));   // false (3 × 3)
-console.log(esPrimo(1));   // false (por definición, 1 no es primo)
-
-console.log("--- dosPunteros ---");
-console.log(dosPunteros([1, 3, 5, 7, 9], 8));   // [1, 7] o [3, 5]
-console.log(dosPunteros([2, 4, 6, 8], 10));      // [2, 8] o [4, 6]
-console.log(dosPunteros([1, 2, 3], 10));          // null
 
 console.log("--- contarUnicos ---");
 console.log(contarUnicos([1, 2, 2, 3, 3, 3])); // 3
