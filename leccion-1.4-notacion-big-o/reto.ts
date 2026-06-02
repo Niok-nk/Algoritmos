@@ -95,12 +95,13 @@ console.log(dosPunteros([1, 2, 3], 10));          // null
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota la complejidad en el comentario
-// Complejidad: O( ??? )
+// Complejidad: O(n)
 function contarUnicos(arr: number[]): number {
     const vista = new Set<number>();
     for(let i = 0; i < arr.length; i++){
-        
-    }
+        vista.add(arr[i]);
+    }  
+    return vista.size;
 }
 
 console.log("--- contarUnicos ---");
