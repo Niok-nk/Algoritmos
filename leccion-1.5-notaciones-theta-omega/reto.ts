@@ -21,13 +21,25 @@ export {};
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota las notaciones
-// O(?)
-// Ω(?)
-// ¿Es Θ? (?)
+// O(n)
+// Ω(n)
+// ¿Es Θ? (si, Θ(n))
 function encontrarMaximo(arr: number[]): number {
   if (arr.length === 0) throw new Error("Arreglo vacío");
-
+  let maximo = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > maximo) {
+      maximo = arr[i];
+    }
+  }
+  return maximo;
+  //
 }
+
+console.log("--- encontrarMaximo ---");
+console.log(encontrarMaximo([3, 7, 2, 9, 5]));  // 9 
+console.log(encontrarMaximo([-5, -2, -10]));     // -2 
+console.log(encontrarMaximo([100] ));              // 100 
 
 // ─────────────────────────────────────────────
 // FUNCIÓN B: Verificar si un arreglo está ordenado
@@ -54,6 +66,12 @@ function estaOrdenado(arr: number[]): boolean {
 
 }
 
+console.log("--- estaOrdenado ---");
+// console.log(estaOrdenado([1, 3, 5, 8]));   // true
+// console.log(estaOrdenado([1, 5, 3, 8]));   // false
+// console.log(estaOrdenado([3]));             // true
+// console.log(estaOrdenado([]));              // true (vacío está ordenado)
+
 // ─────────────────────────────────────────────
 // FUNCIÓN C: Determinar si Θ aplica o no
 // Para cada par (Ω, O) indica si el algoritmo
@@ -78,18 +96,6 @@ function esTheta(omega: string, o: string): string {
   }
   return `No es Θ (Ω = ${omega}, O = ${o}, son diferentes)`;
 }
-
-// Pruebas:
-console.log("--- encontrarMaximo ---");
-// console.log(encontrarMaximo([3, 7, 2, 9, 5]));  // 9
-// console.log(encontrarMaximo([-5, -2, -10]));     // -2
-// console.log(encontrarMaximo([100]));              // 100
-
-console.log("--- estaOrdenado ---");
-// console.log(estaOrdenado([1, 3, 5, 8]));   // true
-// console.log(estaOrdenado([1, 5, 3, 8]));   // false
-// console.log(estaOrdenado([3]));             // true
-// console.log(estaOrdenado([]));              // true (vacío está ordenado)
 
 console.log("\n--- esTheta ---");
 console.log("Ω(1), O(n):", esTheta("1", "n"));     // No es Θ
