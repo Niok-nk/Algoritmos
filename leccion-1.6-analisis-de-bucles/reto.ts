@@ -16,13 +16,16 @@ export {};
 // Salida:  void (solo imprime)
 // ─────────────────────────────────────────────
 
-// TODO: anota la complejidad
-// Complejidad: O( ??? )
+// TODO: 1 3 9 27 81
+// Complejidad: O( log n )
 function multiplicaPorTres(n: number): void {
   for (let i = 1; i < n; i *= 3) {
     console.log(i);
   }
 }
+// Pruebas:
+console.log("--- FUNCIÓN A: multiplicaPorTres(100) ---");
+multiplicaPorTres(100);
 
 // ─────────────────────────────────────────────
 // FUNCIÓN B: Bucle anidado con índice que cambia
@@ -34,7 +37,7 @@ function multiplicaPorTres(n: number): void {
 // ─────────────────────────────────────────────
 
 // TODO: anota la complejidad y completa el return
-// Complejidad: O( ??? )
+// Complejidad: O( n² )
 function contarIteraciones(n: number): number {
   let contador = 0;
   for (let i = 0; i < n; i++) {
@@ -45,6 +48,11 @@ function contarIteraciones(n: number): number {
   return contador; // ??
 }
 
+console.log("\n--- FUNCIÓN B: contarIteraciones ---");
+console.log("n=3:", contarIteraciones(3));  // 6
+console.log("n=4:", contarIteraciones(4));  // 10
+console.log("n=5:", contarIteraciones(5));  // 15
+
 // ─────────────────────────────────────────────
 // FUNCIÓN C: Dos bucles anidados con índices distintos
 // Determina la complejidad combinada
@@ -54,7 +62,7 @@ function contarIteraciones(n: number): number {
 // ─────────────────────────────────────────────
 
 // TODO: anota la complejidad
-// Complejidad: O( ??? )
+// Complejidad: O( n log n )
 function buclesCombinados(n: number): void {
   for (let i = 0; i < n; i++) {
     for (let j = 1; j < n; j *= 2) {
@@ -63,14 +71,6 @@ function buclesCombinados(n: number): void {
   }
 }
 
-// Pruebas:
-console.log("--- FUNCIÓN A: multiplicaPorTres(100) ---");
-multiplicaPorTres(100);
-
-console.log("\n--- FUNCIÓN B: contarIteraciones ---");
-console.log("n=3:", contarIteraciones(3));  // 6
-console.log("n=4:", contarIteraciones(4));  // 10
-console.log("n=5:", contarIteraciones(5));  // 15
 
 console.log("\n--- FUNCIÓN C: buclesCombinados(4) ---");
 buclesCombinados(4);
