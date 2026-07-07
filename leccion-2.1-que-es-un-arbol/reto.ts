@@ -76,7 +76,20 @@ function alturaArbol<T>(nodo: NodoArbol<T>): number {
 // ─────────────────────────────────────────────
 
 // Escribe tu código aquí:
-const raiz100 = crearNodo(100);
+const raiz = crearNodo(100);
+console.log(raiz.valor);
+
+const n50 = crearNodo(50);
+agregarHijo(raiz, n50);
+
+
+const n200 = crearNodo(200);
+agregarHijo(raiz, n200);
+console.log(raiz.hijos);
+
+//mapea los hijos de raíz para obtener sus valores, e imprime el array resultante
+console.log(raiz.hijos.map(h => h.valor));
+
 
 
 
