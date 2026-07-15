@@ -1,12 +1,7 @@
 export {};
 // =============================================
-// RETO 2.1 — Constructor de Árboles
-// Dificultad: 🟡 Medio
+// SOLUCIÓN 2.1 — Constructor de Árboles
 // =============================================
-
-// 📘 TypeScript: interface y genéricos
-// Estas son las mismas funciones que viste en teoria.ts
-// Las incluimos aquí para que el reto funcione.
 
 interface NodoArbol<T> {
   valor: T;
@@ -42,9 +37,9 @@ function alturaArbol<T>(nodo: NodoArbol<T>): number {
   }
   return maxAltura;
 }
-// Usando las funciones de teoría (crearNodo,
-// agregarHijo, esHoja, contarNodos, alturaArbol),
-// construye el siguiente árbol y responde:
+
+// ─────────────────────────────────────────────
+// Construcción del árbol del reto:
 //
 //            (100)
 //           /    \
@@ -53,35 +48,12 @@ function alturaArbol<T>(nodo: NodoArbol<T>): number {
 //   (25)  (75)(150) (300)
 //   /  \            /   \
 //(10) (30)       (250) (400)
-//
-// Luego determina:
-//   A) ¿Cuántos nodos tiene?
-//   B) ¿Cuál es su altura?
-//   C) ¿Qué nodos son hojas?
-//   D) ¿Cuál es la altura del subárbol con raíz 200?
-// =============================================
-
-// TODO: Construye el árbol aquí
-// 1. Crea la raíz con valor 100
-// 2. Agrega todos los hijos según el diagrama
-// 3. Descomenta las pruebas al final
-
-// ─────────────────────────────────────────────
-// Pistas:
-// - Usa crearNodo(valor) para cada nodo
-// - Usa agregarHijo(padre, hijo) para conectarlos
-// - Usa contarNodos(raiz) para el total
-// - Usa alturaArbol(raiz) para la altura
-// - Usa esHoja(nodo) para verificar si es hoja
 // ─────────────────────────────────────────────
 
-// Escribe tu código aquí:
 const raiz = crearNodo(100);
-console.log(raiz.valor);
 
 const n50 = crearNodo(50);
 agregarHijo(raiz, n50);
-
 
 const n200 = crearNodo(200);
 agregarHijo(raiz, n200);
@@ -109,13 +81,10 @@ agregarHijo(n300, n250);
 
 const n400 = crearNodo(400);
 agregarHijo(n300, n400);
-console.log(raiz.hijos);
-//mapea los hijos de raíz para obtener sus valores, e imprime el array resultante
-console.log(raiz.hijos.map(h => h.valor));
 
-//Pruebas (descomenta cuando tengas el árbol listo):
+// Pruebas
 console.log("=== ÁRBOL DEL RETO ===");
 console.log("Total nodos:", contarNodos(raiz));     // 11
 console.log("Altura del árbol:", alturaArbol(raiz)); // 3
-console.log("Hojas:", esHoja(n10), esHoja(n30), esHoja(n250), esHoja(n400));  // true true true true
+console.log("Hojas:", esHoja(n10), esHoja(n30), esHoja(n75), esHoja(n150), esHoja(n250), esHoja(n400)); // todas true
 console.log("Altura del subárbol 200:", alturaArbol(n200)); // 2

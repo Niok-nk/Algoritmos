@@ -141,6 +141,13 @@ function contarNodos<T>(nodo: NodoArbol<T>): number {
   return total;
 }
 
+//**
+// "Del arreglo nodo.hijos, saca cada elemento, nómbralo hijo, y ejecuta el bloque con él."
+// nodo.hijos  →  hijo    →    bloque
+//   origen      destino       acción
+// 
+//  */
+
 // Calcular la altura del árbol
 function alturaArbol<T>(nodo: NodoArbol<T>): number {
   if (esHoja(nodo)) return 0; // Una hoja tiene altura 0
