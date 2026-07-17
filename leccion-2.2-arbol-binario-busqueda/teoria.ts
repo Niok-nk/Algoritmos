@@ -62,6 +62,70 @@ interface NodoBST<T> {
   //           └── null significa "no hay hijo"
 }
 
+// 📘 NOTA TYPESCRIPT — ¿Qué es una clase?
+// ============================================================
+//
+// class es una "plantilla" para crear objetos.
+// Agrupa datos (propiedades) y funciones (métodos) en una
+// sola unidad. Se lee de derecha a izquierda:
+//
+//   class ArbolBST<T extends number | string> { ... }
+//     ↑        ↑        ↑
+//     └──      └──      └── "T solo puede ser number
+//     "class"  nombre   o string" (restricción genérica)
+//
+//   "Define una plantilla llamada ArbolBST que trabaja con
+//    valores numéricos o de texto."
+//
+// Partes de una clase:
+//
+// 1. PROPIEDADES (datos que guarda):
+//    private raiz: NodoBST<T> | null = null;
+//    ↑              ↑                   ↑
+//    └── "solo      └── tipo de dato    └── valor inicial
+//         accesible
+//         dentro de
+//         la clase"
+//
+// 2. MÉTODOS (funciones que hace):
+//    insertar(valor: T): void { ... }
+//    ↑       ↑           ↑
+//    └──     └── recibe  └── "no devuelve nada"
+//    "público" un dato
+//    (accesible
+//    desde fuera)
+//
+// 3. this (la palabra clave):
+//    this.raiz  → "la raíz de ESTE árbol en particular"
+//    this.insertarNodo() → "el método insertarNodo de ESTE objeto"
+//
+// 4. private vs público (por defecto):
+//    private   → solo accesible DENTRO de la clase
+//    (sin nada) → accesible DESDE FUERA (público)
+//    Ej: arbol.insertar(8) funciona, pero arbol.raiz NO
+//
+// 5. new (crear un objeto a partir de la clase):
+//    const arbol = new ArbolBST<number>();
+//                  ↑     ↑
+//                  └──   └── "crea una instancia de ArbolBST
+//                  "crea  que trabaja con números"
+//                   nuevo"
+//
+// Analogía:
+//   class es como un MOLDE de galletas.
+//   El molde define la forma (propiedades y métodos).
+//   new crea una GALLETA (objeto real) usando ese molde.
+//   Puedes hacer muchas galletas (objetos) con el mismo molde.
+//
+// Diferencia con interface:
+//   interface → solo describe la FORMA (como un plano)
+//   class     → describe la forma Y da la IMPLEMENTACIÓN
+//               (tiene código ejecutable dentro)
+//
+// En este archivo usamos interface para describir nodos
+// y class para describir el árbol completo (con sus
+// métodos de insertar y buscar).
+
 class ArbolBST<T extends number | string> {
   // ↑     ↑
   // └─ una └─ T solo puede ser number o string
